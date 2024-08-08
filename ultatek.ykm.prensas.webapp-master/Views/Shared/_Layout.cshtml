@@ -1,0 +1,290 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using WebApplication.Authentication
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hammaden</title>
+
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="~/global_assets/css/icons/icomoon/styles.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/all.min.css" rel="stylesheet" type="text/css">
+    <!-- /global stylesheets -->
+    <!-- Core JS files -->
+    <script src="~/global_assets/js/main/jquery.min.js"></script>
+    <script src="~/global_assets/js/main/bootstrap.bundle.min.js"></script>
+    <!-- /core JS files -->
+    <!-- Theme JS files -->
+    <script src="~/assets/js/app.js"></script>
+    <!-- /theme JS files -->
+
+</head>
+
+<body>
+
+    <!-- Main navbar -->
+    <div class="navbar navbar-expand-lg navbar-dark navbar-static" style="background-color:tomato">
+        <div class="d-flex flex-1 d-lg-none">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mobile">
+                <i class="icon-paragraph-justify3"></i>
+            </button>
+            <button class="navbar-toggler sidebar-mobile-main-toggle" type="button">
+                <i class="icon-transmission"></i>
+            </button>
+        </div>
+
+        <div class="navbar-brand text-center text-lg-left">
+
+            <a href="/" class="d-inline-block">
+				<span class="d-none d-lg-inline-block">Hammaden</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+                    <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                    <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                </svg>
+                
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse order-2 order-lg-1" id="navbar-mobile">
+        </div>
+
+        <ul class="navbar-nav flex-row order-1 order-lg-2 flex-1 flex-lg-0 justify-content-end align-items-center">
+
+            <partial name="_LoginPartial" />
+
+
+
+        </ul>
+    </div>
+    <!-- /main navbar -->
+    <!-- Page content -->
+    <div class="page-content">
+
+        <!-- Main sidebar -->
+        <div class="sidebar sidebar-dark sidebar-main sidebar-expand-lg">
+
+            <!-- Sidebar content -->
+            <div class="sidebar-content">
+
+
+
+                <!-- Main navigation -->
+                <div class="sidebar-section">
+                    <ul class="nav nav-sidebar" data-nav-type="accordion">
+
+
+
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-chart"></i> <span>Settings</span></a>
+
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="~/Home/Estacion2500T" class="nav-link ">Roles</a></li>
+                            </ul>
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="~/Home/Estacion1500T1" class="nav-link ">Employees</a></li>
+                            </ul>
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="~/Home/Estacion1500T2" class="nav-link ">Users</a></li>
+                            </ul>
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="~/Home/EstacionHS1" class="nav-link ">Applications</a></li>
+                            </ul>                    
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="/Identity/Account/Manage" class="nav-link ">Profile</a></li>
+                            </ul>
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="~/Home/EstacionHS2" class="nav-link ">Base URL</a></li>
+                            </ul>
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="~/Home/EstacionHS2" class="nav-link ">Color Palette</a></li>
+                            </ul>
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="~/Home/EstacionHS2" class="nav-link ">Company</a></li>
+                            </ul>
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="~/Home/EstacionHS2" class="nav-link ">License</a></li>
+                            </ul>
+
+                    
+                        </li>
+
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-file-stats"></i> <span>Energy</span></a>
+
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="~/reportes/TRF1500_1" class="nav-link ">Meters</a></li>
+
+                            </ul>
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="~/reportes/TRF1500_2" class="nav-link ">Schedules</a></li>
+
+                            </ul>
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item">
+                                    <a href="~/reportes/TRF2500" class="nav-link ">
+                                        Consumption By Day
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item">
+                                    <a href="~/reportes/Stamping" class="nav-link ">
+                                        Consumption By Year
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item">
+                                    <a href="~/reportes/StampingYakasaki" class="nav-link ">
+                                        Consumption By Month
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item">
+                                    <a href="~/reportes/StampingYakasaki" class="nav-link ">
+                                        Consumption General
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item">
+                                    <a href="~/reportes/StampingYakasaki" class="nav-link ">
+                                        Indicadores By Range
+                                    </a>
+                                </li>
+                            </ul>
+                                                        <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item">
+                                    <a href="~/reportes/StampingYakasaki" class="nav-link ">
+                                        Report By Day
+                                    </a>
+                                </li>
+                            </ul>
+                                                        <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item">
+                                    <a href="~/reportes/StampingYakasaki" class="nav-link ">
+                                        Report By Year
+                                    </a>
+                                </li>
+                            </ul>
+                                                        <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item">
+                                    <a href="~/reportes/StampingYakasaki" class="nav-link ">
+                                        Report By Month
+                                    </a>
+                                </li>
+                            </ul>
+                                                        <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item">
+                                    <a href="~/reportes/StampingYakasaki" class="nav-link ">
+                                        Emissions Dashboard
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-file-stats"></i> <span>Reporte Historico</span></a>
+
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="~/reportes/TRF1500_1_Historico" class="nav-link ">Reporte TRF1500 1</a></li>
+
+                            </ul>
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="~/reportes/TRF1500_2_Historico" class="nav-link ">Reporte TRF1500 2</a></li>
+
+                            </ul>
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="~/reportes/TRF2500_Historico" class="nav-link ">Reporte TRF2500</a></li>
+
+                            </ul>
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="~/reportes/Stamping_Historico" class="nav-link ">Reporte AIDA</a></li>
+
+                            </ul>
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="~/reportes/StampingYakasaki_Historico" class="nav-link ">Reporte KAYASAKI</a></li>
+
+                            </ul>
+                        </li>
+
+                         <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-wrench2"></i> <span>Catalogos</span></a>
+@* 
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="~/Catalogo/Lineas" class="nav-link ">Lineas</a></li>
+
+                            </ul>
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="~/Catalogo/Maquinas" class="nav-link ">Maquinas</a></li>
+
+                            </ul>
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="~/Catalogo/Conexiones" class="nav-link ">Conexiones</a></li>
+
+                            </ul> *@
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="~/Catalogo/Modelos" class="nav-link ">Modelos</a></li>
+
+                            </ul>
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="~/Catalogo/Horarios" class="nav-link ">Horarios</a></li>
+
+                            </ul>
+                        </li>
+ 
+                        <li class="nav-item"><a href="~/Catalogo/Proyectado" class="nav-link"><i class="icon-width"></i> <span>Proyectado</span></a></li>
+
+
+                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Administrador"))
+                        {
+                            <li class="nav-item nav-item-submenu">
+                                <a href="#" class="nav-link"><i class="icon-user"></i> <span>Usuarios</span></a>
+
+                                <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                    <li class="nav-item"><a href="~/Identity/Account/Register" class="nav-link ">Registrar usuario</a></li>
+                                    <li class="nav-item"><a href="~/Admin" class="nav-link ">Modificar usuario</a></li>
+
+                                </ul>
+                            </li>
+
+                        }
+
+                    </ul>
+                </div>
+                <!-- /main navigation -->
+
+            </div>
+            <!-- /sidebar content -->
+
+        </div>
+        <!-- /main sidebar -->
+        <!-- Main content -->
+        <div class="content-wrapper">
+
+
+            @RenderBody()
+
+        </div>
+        <!-- /inner content -->
+
+
+
+    </div>
+    <!-- /page content -->
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

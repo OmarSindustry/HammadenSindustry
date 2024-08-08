@@ -1,0 +1,201 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+
+
+
+
+    <!-- Inner content -->
+    <div class="content-inner">
+
+
+
+        <!-- Content area -->
+        <div class="content">
+
+
+            <div class="row">
+
+
+                <div class="col">
+                    <!-- Members online -->
+                    <div class="card bg-teal text-white">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <h3 class="font-weight-semibold mb-0">Estación 1500 T2</h3>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <!-- /members online -->
+                </div>
+
+            </div>
+
+
+
+            <!-- Traffic sources -->
+            <div class="card">
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="d-flex align-items-center justify-content-center mb-2">
+                                    <a href="#" class="btn bg-transparent border-teal text-teal rounded-pill border-2 btn-icon mr-3">
+                                        <i class="icon-office"></i>
+                                    </a>
+                                    <div>
+                                        <div class="font-weight-semibold" style="font-size: 20px;">Piezas modelo actual</div>
+                                        <span class="font-weight-semibold" style="font-size: 20px;" id="piezas_modelo_actual"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="d-flex align-items-center justify-content-center mb-2">
+                                    <a href="#" class="btn bg-transparent border-teal text-teal rounded-pill border-2 btn-icon mr-3">
+                                        <i class="icon-office"></i>
+                                    </a>
+                                    <div>
+                                        <div class="font-weight-semibold" style="font-size: 20px;">Modelo Actual</div>
+                                        <span class="font-weight-semibold" style="font-size: 20px;" id="modelo_actual"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex align-items-center justify-content-center mb-2">
+                                <a href="#" class="btn bg-transparent border-teal text-teal rounded-pill border-2 btn-icon mr-3">
+                                    <i class="icon-office"></i>
+                                </a>
+                                <div>
+                                    <div class="font-weight-semibold" style="font-size: 20px;">Proyectado</div>
+                                    <span class="font-weight-semibold" style="font-size: 20px;" id="proyectado"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex align-items-center justify-content-center mb-2">
+                                <a href="#" class="btn bg-transparent border-teal text-teal rounded-pill border-2 btn-icon mr-3">
+                                    <i class="icon-stats-growth"></i>
+                                </a>
+                                <div>
+                                    <div class="font-weight-semibold" style="font-size: 20px;">Golpes Totales</div>
+                                    <span class="font-weight-semibold" style="font-size: 20px;" id="golpes_totales"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex align-items-center justify-content-center mb-2">
+                                <a href="#" class="btn bg-transparent border-teal text-teal rounded-pill border-2 btn-icon mr-3">
+                                    <i class="icon-pie-chart4"></i>
+                                </a>
+                                <div>
+                                    <div class="font-weight-semibold" style="font-size: 20px;">Diferencia</div>
+                                    <span class="font-weight-semibold" style="font-size: 20px;" id="diferencia"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex align-items-center justify-content-center mb-2">
+                                <a href="#" class="btn bg-transparent border-teal text-teal rounded-pill border-2 btn-icon mr-3">
+                                    <i class="icon-puzzle4"></i>
+                                </a>
+                                <div>
+                                    <div class="font-weight-semibold" style="font-size: 20px;">SPH Promedio</div>
+                                    <span class="font-weight-semibold" style="font-size: 20px;" id="sph_promedio"></span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- /traffic sources -->
+
+            <div class="row">
+
+                <div class="col">
+                    <!-- Basic area -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Producción</h5>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <div class="chart" style="height: 200px;" id="oee_1"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- /basic area -->
+                </div>
+
+
+            </div>
+
+            <div class="row">
+
+                <div class="col">
+                    <!-- Basic area -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Producción actual</h3>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <div class="chart" style="height: 250px;" id="produccion_actual"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- /basic area -->
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+@section Scripts
+    {
+
+    <link href="~/assets/css/custom.css" rel="stylesheet" type="text/css">
+    <script src="~/global_assets/js/plugins/visualization/echarts/echarts.min.js"></script>
+
+    <script src="~/custom/js/home/Estacion1500T2.js"></script>
+
+
+
+
+}

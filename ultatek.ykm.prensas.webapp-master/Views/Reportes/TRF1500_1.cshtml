@@ -1,0 +1,146 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <!-- Inner content -->
+    <div class="content-inner">
+        <!-- Content area -->
+        <div class="content">
+            <!-- Basic datatable -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col d-flex justify-content-center align-items-center">
+                            <div class="d-flex">
+                                <h2 class="font-weight-semibold mb-0">Meters</h2>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <button id="downloadExcelWithChart" class="btn btn-light btn-block">Descargar Excel con Gráfico</button>
+                                <label for="datetimepicker">Filtro Fechas:</label>
+                                <div class="input-group">
+                                    <span class="input-group-prepend">
+                                        <span class="input-group-text"><i class="icon-calendar22"></i></span>
+                                    </span>
+                                    <input type="text" id="datetimepicker" class="form-control daterange-time">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="numeroNodoSelect">Numero de Nodo:</label>
+                                <select id="numeroNodoSelect" class="form-control">
+                                    <option value="">Seleccione...</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="cargaSelect">Carga:</label>
+                                <select id="cargaSelect" class="form-control">
+                                    <option value="">Seleccione...</option>
+                                    <option value="Breaker Principal 200">Breaker Principal 200</option>
+                                    <option value="Breaker Principal 480">Breaker Principal 480</option>
+                                    <option value="Compresor 1">Compresor 1</option>
+                                    <option value="Compresor 2">Compresor 2</option>
+                                    <option value="Compresor 3">Compresor 3</option>
+                                    <option value="Compresor 4">Compresor 4</option>
+                                    <option value="HVAC 1">HVAC 1</option>
+                                    <option value="HVAC 2">HVAC 2</option>
+                                    <option value="Moldeo 1">Moldeo 1</option>
+                                    <option value="Moldeo 2">Moldeo 2</option>
+                                    <option value="Moldeo 3">Moldeo 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="tipoVoltajeSelect">Tipo de Voltaje:</label>
+                                <select id="tipoVoltajeSelect" class="form-control">
+                                    <option value="">Seleccione...</option>
+                                    <option value="480 VAC">480 VAC</option>
+                                    <option value="200 VAC">200 VAC</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="generarReporteBtn">Generar Reporte</label>
+                                <div class="input-group">
+                                    <button id="generarReporteBtn" class="btn btn-light btn-block">Generar Reporte</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table id="metersTable" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Meter ID</th>
+                                <th>Schedule ID</th>
+                                <th>Unit</th>
+                                <th>Value</th>
+                                <th>Consumo</th>
+                                <th>Measured</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div id="invisible_chart" style="width: 800px; height: 600px; display: none;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- /content area -->
+    </div>
+    <!-- /inner content -->
+    <div class="modal fade bd-example-modal-lg" id="loader" data-backdrop="static" data-keyboard="false" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+            <div class="theme_xbox_lg" style="margin-top: 100%;">
+                <div class="pace_progress" data-progress-text="60%" data-progress="60"></div>
+                <div class="pace_activity"></div>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts
+    {
+        <!-- Theme JS files -->
+        <script src="~/global_assets/js/plugins/tables/datatables/datatables.min.js"></script>
+        <script src="~/global_assets/js/plugins/tables/datatables/extensions/fixed_columns.min.js"></script>
+        <script src="~/global_assets/js/plugins/tables/datatables/extensions/pdfmake/pdfmake.min.js"></script>
+        <script src="~/global_assets/js/plugins/tables/datatables/extensions/pdfmake/vfs_fonts.min.js"></script>
+        <script src="~/global_assets/js/plugins/tables/datatables/extensions/buttons.min.js"></script>
+        <script src="~/global_assets/js/plugins/extensions/jquery_ui/interactions.min.js"></script>
+        <script src="~/global_assets/js/plugins/forms/selects/select2.min.js"></script>
+        <script src="~/global_assets/js/plugins/ui/moment/moment.min.js"></script>
+        <script src="~/global_assets/js/plugins/pickers/daterangepicker.js"></script>
+        <script src="~/global_assets/js/plugins/pickers/pickadate/picker.js"></script>
+        <script src="~/global_assets/js/plugins/pickers/pickadate/picker.date.js"></script>
+        <script src="~/global_assets/js/plugins/pickers/pickadate/picker.time.js"></script>
+        <script src="~/global_assets/js/plugins/pickers/pickadate/legacy.js"></script>
+        <script src="~/global_assets/js/plugins/notifications/jgrowl.min.js"></script>
+        <script src="~/global_assets/js/plugins/loaders/progressbar.min.js"></script>
+        <script src="~/global_assets/js/plugins/visualization/echarts/echarts.min.js"></script>
+        <script src="~/global_assets/js/plugins/extensions/jquery_ui/interactions.min.js"></script>
+        <script src="~/global_assets/js/plugins/forms/selects/select2.min.js"></script>
+        <script src="~/custom/js/reportes/TRF1500_1.js"></script>
+
+    }
+</body>
+</html>

@@ -1,0 +1,175 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+    <!-- Inner content -->
+    <div class="content-inner">
+
+
+
+        <!-- Content area -->
+        <div class="content">
+
+            <div class="row">
+                <div class="col">
+                    <div class="card card-body border-top-primary card-hmi" style="padding-top: 10px;">
+
+                        <div class="row">
+
+                            <div class="col-8">
+                            </div>
+
+
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <button type="button" class="btn btn-light btn-block" onclick="editar_click()"><i class="icon-pencil"></i> Editar horario</button>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Basic datatable -->
+            <div class="card">
+
+                <table class="table datatable-basic display compact nowrap" id="lineas">
+                    <thead>
+                        <tr>
+
+                            <th>Nombre</th>
+                            <th>Descripcion</th>
+                            <th>Horario Inicial</th>
+                            <th>Horario Final</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /basic datatable -->
+
+
+        </div>
+        <!-- /inner content -->
+
+    </div>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+<!-- Vertical form modal -->
+<div id="editarModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Editar Horario</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <form action="#">
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <label>Horario</label>
+                                <input type="text" id="nombreEditar" class="form-control" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row">
+
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <label>Hora inicial</label>
+                                        <input type="text" id="horario_inicioEditar" class="form-control pickatime rounded-right">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <label>Hora final</label>
+                                        <input type="text" id="horario_finEditar" class="form-control pickatime rounded-right">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="submit_editar()">Editar</button>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- /vertical form modal -->
+@section Scripts
+    {
+
+    <link href="~/assets/css/custom.css" rel="stylesheet" type="text/css">
+
+    <!-- Theme JS files -->
+    <script src="/global_assets/js/plugins/tables/datatables/datatables.min.js"></script>
+    <script src="/global_assets/js/plugins/tables/datatables/extensions/select.min.js"></script>
+    <script src="/global_assets/js/plugins/tables/datatables/extensions/buttons.min.js"></script>
+    <script src="/global_assets/js/plugins/notifications/sweet_alert.min.js"></script>
+
+    <script src="~/global_assets/js/plugins/ui/moment/moment.min.js"></script>
+    <script src="~/global_assets/js/plugins/pickers/daterangepicker.js"></script>
+    <script src="~/global_assets/js/plugins/pickers/pickadate/picker.js"></script>
+    <script src="~/global_assets/js/plugins/pickers/pickadate/picker.date.js"></script>
+    <script src="~/global_assets/js/plugins/pickers/pickadate/picker.time.js"></script>
+    <script src="~/global_assets/js/plugins/pickers/pickadate/legacy.js"></script>
+
+    <script src="~/global_assets/js/plugins/extensions/jquery_ui/interactions.min.js"></script>
+    <script src="~/global_assets/js/plugins/forms/selects/select2.min.js"></script>
+
+    <script src="~/custom/js/catalogo/horario.js"></script>
+
+
+}
